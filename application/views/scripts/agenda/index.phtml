@@ -1,0 +1,30 @@
+<table id="tbl-agenda"></table>
+<div id="pg-agenda"></div>
+ 
+<script type="text/javascript">
+ 
+    $("#tbl-agenda").jqGrid({
+        url:'/exemplos/jqGrid/agenda/dados',
+        editurl:'/exemplos/jqGrid/agenda/save',
+        datatype: "json",
+        mtype: 'GET',
+        colNames:['C&oacute;d', 'Nome', 'Fone', 'Endere&ccedil;o'],
+        colModel:[
+            {name:'id',index:'id', width:55, sorttype:"int", align:"center"},
+            {name:'nome',index:'nome', width: 200, editable: true},
+            {name:'fone',index:'fone', width: 100, align:"center", editable: true},
+            {name:'endereco',index:'endereco', width: 400, editable: true}
+        ],
+	rowNum:10,
+	rowList:[10,20,30],
+	pager: '#pg-agenda',
+	sortname: 'nome',
+	viewrecords: true,
+	sortordet: "ASC",
+	caption:"Agenda"
+     });
+
+     $("#tbl-agenda").jqGrid('navGrid','#pg-agenda',{edit:true,add:true,del:true,search:true});
+</script>
+	
+
